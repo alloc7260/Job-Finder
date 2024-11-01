@@ -76,7 +76,7 @@
       const query = $('.search-box').val();
       // const size = $('.size-selector').val();
       const size = 5;
-      fetch(`https://image-job-finder.azurewebsites.net/search?q=${encodeURIComponent(query.trim())}&size=${size}`)
+      fetch(`{{ host }}/search?q=${encodeURIComponent(query.trim())}&size=${size}`)
         .then((resp) => resp.json())
         .then((data) => {
           if (data.length == 0) {

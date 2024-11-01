@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, jsonify, url_for
 import pandas as pd
+import os
 
 df = pd.read_excel("extracted_text.xlsx")
 app = Flask(__name__)
@@ -7,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", host=os.getenv("HOST"))
 
 
 @app.route("/search")
